@@ -7,31 +7,40 @@ const apiKeyQueryStringParametro = "apiKey=37c5e9e2ca57492492c5eb8cb61638a2"
 //Condición para definir que lo que quiero que pase, solo va dirigido a home page:
 if (window.location.pathname.includes("/home.html")){
     //Funciones para llamadas a las APIs
-    async function obtenerFotosSlider() {
+    
+    async function pintarFotosSlider() {
         let sliderFotos = [];
         //Offset 0 para obtener siempre los mismos platos
         const respuesta = await fetch(`${urlRecetas}?${apiKeyQueryStringParametro}&number=20&offset=0`);
         const respuestaJson = await respuesta.json();
-        const resultados = respuestaJson.results;
+        const resultados =  await respuestaJson.results;
         for (let i = 0; i < resultados.length; i++) {
             sliderFotos.push(resultados[i].image);
-            
         }
-        return sliderFotos;
-    }
-    
-    async function pintarSliderFotos(template,arrayDeFotos) {
-        for (let i = 0; i < arrayDeFotos.length; i++) {
+        for (let i = 0; i < sliderFotos.length; i++) {
             let template = 
             `<article class="fotoSlider">
-                <img src="${arrayDeFotos[i]}" alt="imagenPlato${[i]}">
+                <img src="${sliderFotos[i]}" alt="imagenPlato${[i]}">
             </article>`   
             document.getElementById("sliderFotos").innerHTML = template
-        }
     }
+    }
+    pintarFotosSlider()
     
-    //Puedo necesitarlo después como opción para llamar a mi función:
-    // let sliderFotos = await obtenerFotosSlider();
+    // let sliderFotos = obtenerFotosSlider();
     // console.log(sliderFotos);
+    
+    // async function pintarSliderFotos() {
+    //     console.log(sliderFotos);
+    //     for (let i = 0; i < sliderFotos.length; i++) {
+    //         let template = 
+    //         `<article class="fotoSlider">
+    //             <img src="${sliderFotos[i]}" alt="imagenPlato${[i]}">
+    //         </article>`   
+    //         document.getElementById("sliderFotos").innerHTML = template
+    //     }
+    // }
+    // pintarSliderFotos()
+    //Puedo necesitarlo después como opción para llamar a mi función:
 
 }
