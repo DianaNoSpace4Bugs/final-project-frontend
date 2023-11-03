@@ -1,19 +1,11 @@
 /* EJEMPLO DE CREACIÓN DE SLIDER DE FOTOS */
-#sliderFotos {
+#contenedorSlider{
     width: 80%;
-    }
-     
-    /* .fotoSlider {
-    width: 80%;
-    display: none;
-    position: relative;
-    }
-     
-    .fotoSlider img {
-    anchura: 80%;
-    altura: 80%;
-    }
-     
-    .fotoSlider.active {
-    display: block;
-    } */
+}
+#sliderFotos{
+    display: flex;
+    flex-direction: row;
+}
+.fotoSlider{
+    
+}

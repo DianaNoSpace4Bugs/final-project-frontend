@@ -19,7 +19,8 @@ if (window.location.pathname.includes("/home.html")){
         }
         for (let i = 0; i < sliderFotos.length; i++) {
             let template = 
-            `<article class="fotoSlider">
+            `<div id="contenedorSlider">
+            <article class="fotoSlider">
                 <img src="${sliderFotos[0]}" alt="imagenPlato${[0]}">
             </article>
             <article class="fotoSlider">
@@ -27,7 +28,17 @@ if (window.location.pathname.includes("/home.html")){
             </article>
             <article class="fotoSlider">
                 <img src="${sliderFotos[3]}" alt="imagenPlato${[3]}">
-            </article>`    
+            </article>
+            <article class="fotoSlider">
+                <img src="${sliderFotos[4]}" alt="imagenPlato${[4]}">
+            </article>
+            <article class="fotoSlider">
+                <img src="${sliderFotos[5]}" alt="imagenPlato${[5]}">
+            </article>
+            <article class="fotoSlider">
+                <img src="${sliderFotos[6]}" alt="imagenPlato${[6]}">
+            </article>    
+            </div>`
                
             document.getElementById("sliderFotos").innerHTML = template
     }
