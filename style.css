@@ -20,8 +20,9 @@ header{
     background-color: #92D1C3;
     text-align: center;
     font-family: "greenFood";
+    color: #1c3630;
     letter-spacing: 2.5px;
-    font-size: xx-large;
+    font-size: 20px;
     margin-top: none;
     padding: 1px 1px 8px 1px;
     margin-top: 1px;
@@ -92,4 +93,43 @@ footer{
     margin-right: 1px;
     margin-bottom: 1px;
     color: #1e5a4d;
+}
+
+/* ESTILOS CONTACT PAGE */
+#formularioContacto{
+    text-align: center;
+    border: 2px solid #b88cb7;
+    padding: 5px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+#legendFormulario{
+    font-family: "retroVintage";
+    letter-spacing: 1px;
+    padding-bottom: 25px;
+    font-size: 34px;
+    color: #885b87;
+}
+.seccionFormulario{
+    border: none;
+}
+label{
+    font-family: "retroVintage";
+    letter-spacing: 1px;
+    color: #b88cb7;
+    font-size: 24px;
+}
+input,textarea{
+    margin-top: 8px;
+    margin-bottom: 28px;
+    background-color: #f8edf8;
+    border: 3px solid #dcb8db;
+    padding: 7px;
+}
+#enviarFormulario{
+    background-color: #8a6189;
+    font-family: "retroVintage";
+    color: #ffe1fe;
+    padding: 10px 25px;
+    font-size: 23px;
 }
