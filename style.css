@@ -1,4 +1,50 @@
-/* EJEMPLO DE CREACIÓN DE SLIDER DE FOTOS */
+/* FONTS */
+@font-face {
+    font-family: "greenFood";
+    src: url("./fonts/GREENFOOD\ PERSONAL\ USE.ttf");
+}
+@font-face {
+    font-family:"retroVintage";
+    src: url("./fonts/RetroVintage-Regular.otf");
+}
+/* ESTILOS HOME PAGE */
+/* Header part */
+header{
+    background-color: #92D1C3;
+    text-align: center;
+    font-family: "greenFood";
+    letter-spacing: 2.5px;
+    font-size: xx-large;
+    margin-top: none;
+    padding: 1px 1px 8px 1px;
+    margin-top: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-bottom: 28px;
+}
+header nav{
+    display: flex;
+    flex-direction: column;
+    font-family: "retroVintage";
+    margin-bottom: 3px;
+}
+.navBar{
+    padding: 10px;
+    text-decoration: none;
+    color: #478c7d;
+    border: 2px solid #abeadc;
+    margin: 0 auto;
+    font-size: x-large;
+    margin-bottom: 5px;
+    width: 90%;
+}
+.navBar:hover{
+    border: 2px solid #478c7d;
+    scale: 1.05px;
+    color: #b8eadf;
+}
+
+/* Main part */
 #contenedorSlider{
     width: 80%;
 }
@@ -6,6 +52,22 @@
     display: flex;
     flex-direction: row;
 }
-.fotoSlider{
-    
+.fotoSlider img{
+    width: 30%;
+}
+
+/* Footer part */
+footer{
+    background-color: #92D1C3;
+    text-align: center;
+    font-family: "retroVintage";
+    font-size: medium;
+    letter-spacing: 1px;
+    margin-top: none;
+    padding: 20px 32px 20px 32px;
+    margin-top: 28px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    color: #1e5a4d;
 }
