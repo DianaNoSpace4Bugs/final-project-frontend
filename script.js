@@ -8,42 +8,30 @@ const apiKeyQueryStringParametro = "apiKey=37c5e9e2ca57492492c5eb8cb61638a2"
 if (window.location.pathname.includes("/home.html")){
     //Funciones para llamadas a las APIs
     
-    async function pintarFotosSlider() {
-        let sliderFotos = [];
+    async function pintarFotosTarjetas() {
+        let infoTarjetas = [];
         //Offset 0 para obtener siempre los mismos platos
         const respuesta = await fetch(`${urlRecetas}?${apiKeyQueryStringParametro}&number=20&offset=0`);
         const respuestaJson = await respuesta.json();
         const resultados =  await respuestaJson.results;
         for (let i = 0; i < resultados.length; i++) {
-            sliderFotos.push(resultados[i].image);
+            infoTarjetas.push({
+                image:resultados[i].image,
+                title:resultados[i].title
+            });
+            
         }
-        for (let i = 0; i < sliderFotos.length; i++) {
-            let template = 
-            `<div id="contenedorSlider">
-            <article class="fotoSlider">
-                <img src="${sliderFotos[0]}" alt="imagenPlato${[0]}">
-            </article>
-            <article class="fotoSlider">
-                <img src="${sliderFotos[1]}" alt="imagenPlato${[1]}">
-            </article>
-            <article class="fotoSlider">
-                <img src="${sliderFotos[3]}" alt="imagenPlato${[3]}">
-            </article>
-            <article class="fotoSlider">
-                <img src="${sliderFotos[4]}" alt="imagenPlato${[4]}">
-            </article>
-            <article class="fotoSlider">
-                <img src="${sliderFotos[5]}" alt="imagenPlato${[5]}">
-            </article>
-            <article class="fotoSlider">
-                <img src="${sliderFotos[6]}" alt="imagenPlato${[6]}">
-            </article>    
-            </div>`
+        for (let i = 0; i < 5; i++) {
+            const template = 
+            `<article class="infoTarjeta">
+                <h3>${infoTarjetas[i].title}</h3>
+                <img src="${infoTarjetas[i].image}" alt="${infoTarjetas[i].title}">
+            </article>`
                
-            document.getElementById("sliderFotos").innerHTML = template
+            document.getElementById("fotosPlatosPopulares").innerHTML += template
     }
     }
-    pintarFotosSlider()
+    pintarFotosTarjetas()
     
     // let sliderFotos = obtenerFotosSlider();
     // console.log(sliderFotos);

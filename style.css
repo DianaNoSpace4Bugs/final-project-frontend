@@ -7,7 +7,14 @@
     font-family:"retroVintage";
     src: url("./fonts/RetroVintage-Regular.otf");
 }
+@font-face {
+    font-family:"bienchen";
+    src: url("./fonts/Bienchen\ b.ttf");
+}
 /* ESTILOS HOME PAGE */
+body{
+    background-color: #FDF5BF;
+}
 /* Header part */
 header{
     background-color: #92D1C3;
@@ -45,15 +52,30 @@ header nav{
 }
 
 /* Main part */
-#contenedorSlider{
-    width: 80%;
+#fotosPlatosPopulares{
+    padding: 1px 10px 10px 10px;
+    background-color: #b88cb7;
 }
-#sliderFotos{
-    display: flex;
-    flex-direction: row;
+#fotosPlatosPopulares h2{
+    text-align: center;
+    color: #FDF5BF;
+    font-family: "bienchen";
+    letter-spacing: 1px;
+    font-size: 42px;
 }
-.fotoSlider img{
-    width: 30%;
+.infoTarjeta{
+    text-align: center;
+    border: 2px solid #FDF5BF;
+    padding: 1px 2px 12px 2px;
+    margin-top: 20px;
+}
+.infoTarjeta h3{
+    color: #FDF5BF;
+    font-family: "bienchen";
+    letter-spacing: 2.5px;
+    font-size: 32px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 /* Footer part */
