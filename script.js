@@ -66,4 +66,42 @@ if (window.location.pathname.includes("/contact.html")) {
         alert("Your form has been submitted successfully")
     })
 
-}
+};
+
+//Pintar tarjetas de productos
+if (window.location.pathname.includes("/products.html")) {
+    //Funciones para llamadas a las APIs
+
+    async function pintarTarjetasProductos() {
+        let infoProductos = [];
+        //Offset 0 para obtener siempre los mismos platos
+        const respuesta = await fetch(`${urlRecetas}?${apiKeyQueryStringParametro}&number=20&offset=0`);
+        const respuestaJson = await respuesta.json();
+        const resultados = await respuestaJson.results;
+        for (let i = 0; i < resultados.length; i++) {
+            infoProductos.push({
+                image: resultados[i].image,
+                title: resultados[i].title,
+                id: resultados[i].id
+            });
+        }
+        for (let i = 0; i < 20; i++) {
+            const respuesta = await fetch(`${urlAPIBase}/recipes/${infoProductos[i].id}/information?${apiKeyQueryStringParametro}&includeNutrition=false`);
+            const respuestaJson = await respuesta.json();
+            const resumen = await respuestaJson.summary;
+            const template =
+                `<article class="infoTarjeta">
+                <h3>${infoProductos[i].title}</h3>
+                <img src="${infoProductos[i].image}" alt="${infoProductos[i].title}">
+                <p class="summary">${resumen}</p>
+            </article>`
+
+            document.getElementById("productos").innerHTML += template
+        }
+    }
+    pintarTarjetasProductos()
+
+
+
+};
+

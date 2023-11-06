@@ -29,6 +29,7 @@ header{
     margin-left: 1px;
     margin-right: 1px;
     margin-bottom: 2px;
+    height: 20%;
 }
 header nav{
     display: flex;
@@ -53,6 +54,9 @@ header nav{
 }
 
 /* Main part */
+main{
+    height: 70%;
+}
 #descripcion{
     padding: 5px 12px 5px 12px;
     text-align: center;
@@ -103,6 +107,7 @@ footer{
     margin-right: 1px;
     margin-bottom: 1px;
     color: #1e5a4d;
+    height: 10%;
 }
 
 /* ESTILOS CONTACT PAGE */
@@ -142,4 +147,8 @@ input,textarea{
     color: #ffe1fe;
     padding: 10px 25px;
     font-size: 23px;
+}
+
+#productos .infoTarjeta h3{
+    color: #3f380a;
 }
