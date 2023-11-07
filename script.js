@@ -1,7 +1,7 @@
 //Constantes globales API
 const urlAPIBase = "https://api.spoonacular.com";
 const urlRecetas = urlAPIBase + "/recipes/complexSearch";
-const apiKeyQueryStringParametro = "apiKey=661b551dbbaf4cdeaa4db4b9401ae37a"
+const apiKeyQueryStringParametro = "apiKey=89b6554f06804d6396b2336e12d1521b"
 
 
 //Condición para definir que lo que quiero que pase, solo va dirigido a home page:
@@ -19,17 +19,17 @@ if (window.location.pathname.includes("/home.html")) {
     // Añade marker al mapa
     const marker1 = L.marker([51.493721, -0.110830]).addTo(map);
     //Añadir popup a marker
-    marker.bindPopup("<b>FreshBites Fusion</b><br>136 Kennington Rd").openPopup();
+    marker1.bindPopup("<b>FreshBites Fusion</b><br>136 Kennington Rd").openPopup();
 
     // Añade marker al mapa
-    const marker2 = L.marker([51.493721, -0.110830]).addTo(map);
+    const marker2 = L.marker([51.495768, -0.159383]).addTo(map);
     //Añadir popup a marker
-    marker.bindPopup("<b>FreshBites Fusion</b><br>136 Kennington Rd").openPopup();
+    marker2.bindPopup("<b>FreshBites Fusion</b><br>185 Pavilion Rd").openPopup();
 
     // Añade marker al mapa
-    const marker3 = L.marker([51.493721, -0.110830]).addTo(map);
+    const marker3 = L.marker([51.521802, -0.134322]).addTo(map);
     //Añadir popup a marker
-    marker.bindPopup("<b>FreshBites Fusion</b><br>136 Kennington Rd").openPopup();
+    marker3.bindPopup("<b>FreshBites Fusion</b><br>199 Tottenham Ct Rd").openPopup();
 
 
     //Funciones para llamadas a las APIs
@@ -37,7 +37,11 @@ if (window.location.pathname.includes("/home.html")) {
     async function pintarFotosTarjetas() {
         let infoTarjetas = [];
         //Offset 0 para obtener siempre los mismos platos
-        const respuesta = await fetch(`${urlRecetas}?${apiKeyQueryStringParametro}&number=20&offset=0`);
+        let respuesta = await fetch(`${urlRecetas}?${apiKeyQueryStringParametro}&number=20&offset=0`);
+        //En el caso de que no funcione la api por límite de uso cojo los datos del json
+        if (respuesta.status === 402) {
+            respuesta = await fetch("./objetos/objetoTitulosImagenes.json");
+        }
         const respuestaJson = await respuesta.json();
         const resultados = await respuestaJson.results;
         for (let i = 0; i < resultados.length; i++) {
@@ -141,12 +145,12 @@ if (window.location.pathname.includes("/products.html")) {
             const titulosPlatos = [];
             for (let i = 0; i < resultados.length; i++) {
                 titulosPlatos.push(resultados[i].title);
-            }
-            if (valorInputBuscador.includes(titulosPlatos)) {
-                return true
-            }
-            else {
-                return false
+                if (valorInputBuscador.includes(titulosPlatos)) {
+                    return true
+                }
+                else {
+                    return false
+                }
             }
 
 

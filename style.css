@@ -73,7 +73,7 @@ main{
 }
 #fotosPlatosPopulares h2{
     text-align: center;
-    color: #FDF5BF;
+    color: #5c3968;
     font-family: "bienchen";
     letter-spacing: 1px;
     font-size: 42px;
@@ -91,6 +91,38 @@ main{
     font-size: 32px;
     margin-bottom: 10px;
     margin-top: 10px;
+}
+/* Estilos mapa */
+#sectionMapa{
+    text-align: center;
+    padding-bottom: 12px;
+    margin-top: 32px;
+}
+#sectionMapa h2{
+    font-family: 'retroVintage';
+    color: #8e59a7;
+    text-decoration: underline;
+}
+
+#map { 
+    height: 175px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 25px; 
+}
+/* Estilos horarios */
+#horarios{
+    text-align: justify;
+    padding: 10px 21px 3px 21px;
+    font-family: 'retroVintage';
+    color: #7f5ba0;
+    letter-spacing: 0.1px;
+}
+#horarios #openingHours{
+    font-size: x-large;
+    text-align: center;
+    color: #8b559e;
+    text-decoration: underline;
 }
 
 /* Footer part */
@@ -148,12 +180,37 @@ input,textarea{
     padding: 10px 25px;
     font-size: 23px;
 }
-
-#productos .infoTarjeta h3{
+/* ESTILOS PRODUCTS PAGE */
+#productos{
+    padding: 1px 10px 10px 10px;
+    background-color: #b88cb7;
+}
+#buscador{
+    display: flex;
+    margin: 0 auto;
+    margin-top: 64px;
+}
+#botonBuscador{
+    display: flex;
+    margin: 0 auto;
+    margin-top: 7px;
+    margin-bottom: 26px;
+    background: #8965aa;
+    padding: 5px 10px 5px 10px;
+    font-family: 'retroVintage';
+    color: #fbdafa;
+    font-size: 19px;
+}
+.summary{
+    text-align: center;
+    font-family: 'retroVintage';
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    margin: 8px 5px 8px 5px;
+    color: #3e0e6b;
+}
+/* #productos .infoTarjeta h3{
     color: #3f380a;
-}
+} */
 
-/* Estilos mapa */
-#map { 
-    height: 180px; 
-}
