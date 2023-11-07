@@ -3,20 +3,24 @@
     font-family: "greenFood";
     src: url("./fonts/GREENFOOD\ PERSONAL\ USE.ttf");
 }
+
 @font-face {
-    font-family:"retroVintage";
+    font-family: "retroVintage";
     src: url("./fonts/RetroVintage-Regular.otf");
 }
+
 @font-face {
-    font-family:"bienchen";
+    font-family: "bienchen";
     src: url("./fonts/Bienchen\ b.ttf");
 }
+
 /* ESTILOS HOME PAGE */
-body{
+body {
     background-color: #FDF5BF;
 }
+
 /* Header part */
-header{
+header {
     background-color: #92D1C3;
     text-align: center;
     font-family: "greenFood";
@@ -31,13 +35,15 @@ header{
     margin-bottom: 2px;
     height: 20%;
 }
-header nav{
+
+header nav {
     display: flex;
     flex-direction: column;
     font-family: "retroVintage";
     margin-bottom: 3px;
 }
-.navBar{
+
+.navBar {
     padding: 10px;
     text-decoration: none;
     color: #478c7d;
@@ -47,44 +53,51 @@ header nav{
     margin-bottom: 5px;
     width: 90%;
 }
-.navBar:hover{
+
+.navBar:hover {
     border: 2px solid #478c7d;
     scale: 1.05px;
     color: #b8eadf;
 }
 
 /* Main part */
-main{
+main {
     height: 70%;
 }
-#descripcion{
+
+#descripcion {
     padding: 5px 12px 5px 12px;
     text-align: center;
     font-family: 'retroVintage';
     color: #417e70;
 }
-#descripcion h2{
+
+#descripcion h2 {
     font-size: 35px;
     color: #325d53;
 }
-#fotosPlatosPopulares{
+
+#fotosPlatosPopulares {
     padding: 1px 10px 10px 10px;
     background-color: #b88cb7;
 }
-#fotosPlatosPopulares h2{
+
+#fotosPlatosPopulares h2 {
     text-align: center;
     color: #5c3968;
     font-family: "bienchen";
     letter-spacing: 1px;
     font-size: 42px;
 }
-.infoTarjeta{
+
+.infoTarjeta {
     text-align: center;
     border: 2px solid #FDF5BF;
     padding: 1px 2px 12px 2px;
     margin-top: 20px;
 }
-.infoTarjeta h3{
+
+.infoTarjeta h3 {
     color: #FDF5BF;
     font-family: "bienchen";
     letter-spacing: 2.5px;
@@ -92,33 +105,37 @@ main{
     margin-bottom: 10px;
     margin-top: 10px;
 }
+
 /* Estilos mapa */
-#sectionMapa{
+#sectionMapa {
     text-align: center;
     padding-bottom: 12px;
     margin-top: 32px;
 }
-#sectionMapa h2{
+
+#sectionMapa h2 {
     font-family: 'retroVintage';
     color: #8e59a7;
     text-decoration: underline;
 }
 
-#map { 
+#map {
     height: 175px;
     width: 90%;
     margin: 0 auto;
-    margin-top: 25px; 
+    margin-top: 25px;
 }
+
 /* Estilos horarios */
-#horarios{
+#horarios {
     text-align: justify;
     padding: 10px 21px 3px 21px;
     font-family: 'retroVintage';
     color: #7f5ba0;
     letter-spacing: 0.1px;
 }
-#horarios #openingHours{
+
+#horarios #openingHours {
     font-size: x-large;
     text-align: center;
     color: #8b559e;
@@ -126,7 +143,7 @@ main{
 }
 
 /* Footer part */
-footer{
+footer {
     background-color: #92D1C3;
     text-align: center;
     font-family: "retroVintage";
@@ -143,54 +160,64 @@ footer{
 }
 
 /* ESTILOS CONTACT PAGE */
-#formularioContacto{
+#formularioContacto {
     text-align: center;
     border: 2px solid #b88cb7;
     padding: 5px;
     padding-bottom: 25px;
     padding-top: 25px;
+    margin-top: 10px;
 }
-#legendFormulario{
+
+#legendFormulario {
     font-family: "retroVintage";
     letter-spacing: 1px;
     padding-bottom: 25px;
     font-size: 34px;
     color: #885b87;
 }
-.seccionFormulario{
+
+.seccionFormulario {
     border: none;
 }
-label{
+
+label {
     font-family: "retroVintage";
     letter-spacing: 1px;
     color: #b88cb7;
     font-size: 24px;
 }
-input,textarea{
+
+input,
+textarea {
     margin-top: 8px;
     margin-bottom: 28px;
     background-color: #f8edf8;
     border: 3px solid #dcb8db;
     padding: 7px;
 }
-#enviarFormulario{
+
+#enviarFormulario {
     background-color: #8a6189;
     font-family: "retroVintage";
     color: #ffe1fe;
     padding: 10px 25px;
     font-size: 23px;
 }
+
 /* ESTILOS PRODUCTS PAGE */
-#productos{
+#productos {
     padding: 1px 10px 10px 10px;
     background-color: #b88cb7;
 }
-#buscador{
+
+#buscador {
     display: flex;
     margin: 0 auto;
     margin-top: 64px;
 }
-#botonBuscador{
+
+#botonBuscador {
     display: flex;
     margin: 0 auto;
     margin-top: 7px;
@@ -201,7 +228,8 @@ input,textarea{
     color: #fbdafa;
     font-size: 19px;
 }
-.summary{
+
+.summary {
     text-align: center;
     font-family: 'retroVintage';
     font-size: 11px;
@@ -210,7 +238,260 @@ input,textarea{
     margin: 8px 5px 8px 5px;
     color: #3e0e6b;
 }
-/* #productos .infoTarjeta h3{
-    color: #3f380a;
-} */
 
+/* MEDIA QUERIES */
+
+/* QUERY PARA TABLET */
+@media screen and (min-width: 473px) {
+
+    /* HOME PAGE */
+    header h1 {
+        font-size: 55px;
+        margin-bottom: 30px;
+    }
+
+    header nav {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .navBar {
+        max-width: 122px;
+    }
+
+    #descripcion {
+        width: 85%;
+        max-width: 1300px;
+        display: block;
+        margin: 0 auto;
+        font-size: larger;
+    }
+
+    #fotosPlatosPopulares {
+        max-width: 675px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #sectionMapa {
+        max-width: 682px;
+        font-size: larger;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #sectionMapa #map {
+        height: 232px;
+    }
+
+    #horarios {
+        max-width: 952px;
+        display: block;
+        margin: 0 auto;
+        font-size: larger;
+    }
+
+    #horarios ul {
+        display: block;
+        margin: 0 auto;
+        width: fit-content;
+    }
+
+    #horarios p:last-child {
+        max-width: 839px;
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    footer {
+        font-size: large;
+    }
+
+    /* PRODUCTS PAGE */
+    #buscador {
+        padding: 10px 20px 10px 20px;
+        margin-top: 24px;
+    }
+
+    #botonBuscador {
+        font-size: x-large;
+    }
+
+    #productos {
+        max-width: 675px;
+        display: block;
+        margin: 0 auto;
+    }
+
+
+    .summary {
+        font-size: medium;
+        max-width: 596px;
+        display: block;
+        margin: 0 auto;
+        margin-top: 12px;
+        margin-bottom: 6px;
+    }
+
+    /* CONTACT PAGE */
+    #formularioContacto {
+        max-width: 484px;
+        display: block;
+        margin: 0 auto;
+        margin-top: 24px;
+    }
+
+    #formularioContacto .seccionFormulario input {
+        width: 242px;
+    }
+
+}
+
+/* QUERY PARA ORDENADOR */
+@media screen and (min-width: 774px) {
+
+    /* HOME PAGE */
+    header h1 {
+        font-size: 55px;
+        margin-bottom: 30px;
+    }
+
+    header nav {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .navBar {
+        max-width: 285px;
+        font-size: xx-large;
+    }
+
+    #descripcion {
+        width: 85%;
+        max-width: 1377px;
+        display: block;
+        margin: 0 auto;
+        font-size: x-large;
+    }
+
+    #fotosPlatosPopulares {
+        max-width: 1285px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #fotosPlatosPopulares h2 {
+        font-size: xxx-large;
+        text-decoration: underline;
+    }
+
+    #fotosPlatosPopulares h3 {
+        font-size: xxx-large;
+    }
+
+    #fotosPlatosPopulares img {
+        width: 375px;
+    }
+
+    #sectionMapa {
+        max-width: 682px;
+        font-size: x-large;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #sectionMapa #map {
+        height: 310px;
+    }
+
+    #horarios {
+        max-width: 995px;
+        display: block;
+        margin: 0 auto;
+        font-size: x-large;
+    }
+
+    #horarios ul {
+        display: block;
+        margin: 0 auto;
+        width: fit-content;
+        font-size: larger;
+    }
+
+    #horarios p:last-child {
+        max-width: 1045px;
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    footer {
+        font-size: x-large;
+    }
+
+    /* PRODUCTS PAGE */
+    #buscador {
+        width: 366px;
+        margin-bottom: 30px;
+        margin-top: 68px;
+    }
+
+    #botonBuscador {
+        font-size: xx-large;
+    }
+
+    #productos {
+        max-width: 1285px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #productos h3 {
+        font-size: xxx-large;
+    }
+
+    #productos img {
+        width: 408px;
+    }
+
+    .summary {
+        font-size: larger;
+        max-width: 967px;
+        display: block;
+        margin: 0 auto;
+        margin-top: 12px;
+        margin-bottom: 6px;
+    }
+
+    /* CONTACT PAGE */
+    #formularioContacto {
+        max-width: 1053px;
+        display: block;
+        margin: 0 auto;
+        margin-top: 24px;
+    }
+
+    #formularioContacto legend{
+        font-size: xxx-large;
+        text-decoration: underline;
+    }
+
+    #formularioContacto label{
+        font-size: xx-large;
+    }
+
+    #formularioContacto .seccionFormulario input {
+        width: 413px;
+        height: 26px;
+    }
+    #formularioContacto .seccionFormulario textarea {
+        width: 413px;
+        height: 105px;  
+    }
+    #enviarFormulario{
+        font-size: xx-large;
+    }
+}
