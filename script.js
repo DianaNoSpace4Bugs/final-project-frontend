@@ -139,29 +139,81 @@ if (window.location.pathname.includes("/products.html")) {
     }
     pintarTarjetasProductos()
 
-    document.getElementById("botonBuscador").addEventListener("submit", function (event) {
-        event.preventDefault();
-
+    document.getElementById("botonBuscador").addEventListener("click", function (event) {
         const valorInputBuscador = document.getElementById("buscador").value;
-
         async function buscarPorFiltroNombres() {
-            const respuesta = await fetch(`${urlRecetas}?${apiKeyQueryStringParametro}&query=${valorInputBuscador}&number=20&offset=0`);
-            // https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2
-            const respuestaJson = await respuesta.json();
-            const resultados = await respuestaJson.results;
-            console.log(resultados);
-            const titulosPlatos = [];
-            for (let i = 0; i < resultados.length; i++) {
-                titulosPlatos.push(resultados[i].title);
-                if (valorInputBuscador.includes(titulosPlatos)) {
-                    return true
+            let respuesta = await fetch(`${urlRecetas}?${apiKeyQueryStringParametro}&query=${valorInputBuscador}&number=20&offset=0`);
+            //En el caso de que no funcione la api por límite de uso cojo los datos del json
+            if (respuesta.status === 402) {
+                respuesta = await fetch("../objetos/objetoTitulosImagenes.json");
+                const respuestaJson = await respuesta.json();
+                const resultados = await respuestaJson.results;
+                let infoProductos = [];
+                for (let i = 0; i < resultados.length; i++) {
+                    //compruebo si el texto introducido por el usuario lo contiene el título de cada plato
+                    //lo pongo en minúsculas para que de igual cómo se haya escritos
+                    if (resultados[i].title.toLowerCase().includes(valorInputBuscador.trim().toLowerCase())) {
+                        infoProductos.push({
+                            image: resultados[i].image,
+                            title: resultados[i].title,
+                            id: resultados[i].id
+                        });
+                    }
+
                 }
-                else {
-                    return false
+                //limpio los productos que ya había en el DOM para añadir los nuevos filtrados
+                const productosContenedor = document.getElementById("productos");
+                productosContenedor.innerHTML = ''
+                for (let i = 0; i < infoProductos.length; i++) {
+                    let respuesta = await fetch(`${urlAPIBase}/recipes/${infoProductos[i].id}/information?${apiKeyQueryStringParametro}&includeNutrition=false&number=20&offset=0`);
+                    //En el caso de que no funcione la api por límite de uso cojo los datos del json
+                    if (respuesta.status === 402) {
+                        respuesta = await fetch("../objetos/objetoInformacion.json");
+                    }
+                    const respuestaJson = await respuesta.json();
+                    const resumen = await respuestaJson.summary;
+                    const template =
+                        `<article class="infoTarjeta">
+                        <h3>${infoProductos[i].title}</h3>
+                        <img src="${infoProductos[i].image}" alt="${infoProductos[i].title}">
+                        <p class="summary">${resumen}</p>
+                        </article>`
+
+                    productosContenedor.innerHTML += template
                 }
             }
+            else {
+                const respuestaJson = await respuesta.json();
+                const resultados = await respuestaJson.results;
+                let infoProductos = [];
+                for (let i = 0; i < resultados.length; i++) {
+                    infoProductos.push({
+                        image: resultados[i].image,
+                        title: resultados[i].title,
+                        id: resultados[i].id
+                    });
+                }
+                //limpio los productos que ya había en el DOM para añadir los nuevos filtrados
+                const productosContenedor = document.getElementById("productos");
+                productosContenedor.innerHTML = ''
+                for (let i = 0; i < infoProductos.length; i++) {
+                    let respuesta = await fetch(`${urlAPIBase}/recipes/${infoProductos[i].id}/information?${apiKeyQueryStringParametro}&includeNutrition=false&number=20&offset=0`);
+                    //En el caso de que no funcione la api por límite de uso cojo los datos del json
+                    if (respuesta.status === 402) {
+                        respuesta = await fetch("../objetos/objetoInformacion.json");
+                    }
+                    const respuestaJson = await respuesta.json();
+                    const resumen = await respuestaJson.summary;
+                    const template =
+                        `<article class="infoTarjeta">
+                    <h3>${infoProductos[i].title}</h3>
+                    <img src="${infoProductos[i].image}" alt="${infoProductos[i].title}">
+                    <p class="summary">${resumen}</p>
+                    </article>`
 
-
+                    productosContenedor.innerHTML += template
+                }
+            }
         }
         buscarPorFiltroNombres()
     })
