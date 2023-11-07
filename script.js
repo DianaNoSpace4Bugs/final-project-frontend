@@ -105,7 +105,11 @@ if (window.location.pathname.includes("/products.html")) {
     async function pintarTarjetasProductos() {
         let infoProductos = [];
         //Offset 0 para obtener siempre los mismos platos
-        const respuesta = await fetch(`${urlRecetas}?${apiKeyQueryStringParametro}&number=20&offset=0`);
+        let respuesta = await fetch(`${urlRecetas}?${apiKeyQueryStringParametro}&number=20&offset=0`);
+        //En el caso de que no funcione la api por límite de uso cojo los datos del json
+        if (respuesta.status === 402) {
+            respuesta = await fetch("../objetos/objetoTitulosImagenes.json");
+        }
         const respuestaJson = await respuesta.json();
         const resultados = await respuestaJson.results;
         for (let i = 0; i < resultados.length; i++) {
@@ -116,7 +120,11 @@ if (window.location.pathname.includes("/products.html")) {
             });
         }
         for (let i = 0; i < 20; i++) {
-            const respuesta = await fetch(`${urlAPIBase}/recipes/${infoProductos[i].id}/information?${apiKeyQueryStringParametro}&includeNutrition=false&number=20&offset=0`);
+            let respuesta = await fetch(`${urlAPIBase}/recipes/${infoProductos[i].id}/information?${apiKeyQueryStringParametro}&includeNutrition=false&number=20&offset=0`);
+            //En el caso de que no funcione la api por límite de uso cojo los datos del json
+            if (respuesta.status === 402) {
+                respuesta = await fetch("../objetos/objetoInformacion.json");
+            }
             const respuestaJson = await respuesta.json();
             const resumen = await respuestaJson.summary;
             const template =
