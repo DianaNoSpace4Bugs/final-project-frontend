@@ -152,3 +152,8 @@ input,textarea{
 #productos .infoTarjeta h3{
     color: #3f380a;
 }
+
+/* Estilos mapa */
+#map { 
+    height: 180px; 
+}

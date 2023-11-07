@@ -1,11 +1,37 @@
 //Constantes globales API
 const urlAPIBase = "https://api.spoonacular.com";
 const urlRecetas = urlAPIBase + "/recipes/complexSearch";
-const apiKeyQueryStringParametro = "apiKey=37c5e9e2ca57492492c5eb8cb61638a2"
+const apiKeyQueryStringParametro = "apiKey=661b551dbbaf4cdeaa4db4b9401ae37a"
 
 
 //Condición para definir que lo que quiero que pase, solo va dirigido a home page:
 if (window.location.pathname.includes("/home.html")) {
+
+    //Inicializar el display del mapa y setear la vista (coordenadas y zoom)
+    let map = L.map('map').setView([51.505, -0.09], 10);
+
+    //Cargar mapa del mundo y añadirlo 
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    // Añade marker al mapa
+    const marker1 = L.marker([51.493721, -0.110830]).addTo(map);
+    //Añadir popup a marker
+    marker.bindPopup("<b>FreshBites Fusion</b><br>136 Kennington Rd").openPopup();
+
+    // Añade marker al mapa
+    const marker2 = L.marker([51.493721, -0.110830]).addTo(map);
+    //Añadir popup a marker
+    marker.bindPopup("<b>FreshBites Fusion</b><br>136 Kennington Rd").openPopup();
+
+    // Añade marker al mapa
+    const marker3 = L.marker([51.493721, -0.110830]).addTo(map);
+    //Añadir popup a marker
+    marker.bindPopup("<b>FreshBites Fusion</b><br>136 Kennington Rd").openPopup();
+
+
     //Funciones para llamadas a las APIs
 
     async function pintarFotosTarjetas() {
@@ -86,7 +112,7 @@ if (window.location.pathname.includes("/products.html")) {
             });
         }
         for (let i = 0; i < 20; i++) {
-            const respuesta = await fetch(`${urlAPIBase}/recipes/${infoProductos[i].id}/information?${apiKeyQueryStringParametro}&includeNutrition=false`);
+            const respuesta = await fetch(`${urlAPIBase}/recipes/${infoProductos[i].id}/information?${apiKeyQueryStringParametro}&includeNutrition=false&number=20&offset=0`);
             const respuestaJson = await respuesta.json();
             const resumen = await respuestaJson.summary;
             const template =
@@ -101,7 +127,32 @@ if (window.location.pathname.includes("/products.html")) {
     }
     pintarTarjetasProductos()
 
+    document.getElementById("botonBuscador").addEventListener("submit", function (event) {
+        event.preventDefault();
 
+        const valorInputBuscador = document.getElementById("buscador").value;
+
+        async function buscarPorFiltroNombres() {
+            const respuesta = await fetch(`${urlRecetas}?${apiKeyQueryStringParametro}&query=${valorInputBuscador}&number=20&offset=0`);
+            // https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2
+            const respuestaJson = await respuesta.json();
+            const resultados = await respuestaJson.results;
+            console.log(resultados);
+            const titulosPlatos = [];
+            for (let i = 0; i < resultados.length; i++) {
+                titulosPlatos.push(resultados[i].title);
+            }
+            if (valorInputBuscador.includes(titulosPlatos)) {
+                return true
+            }
+            else {
+                return false
+            }
+
+
+        }
+        buscarPorFiltroNombres()
+    })
 
 };
 

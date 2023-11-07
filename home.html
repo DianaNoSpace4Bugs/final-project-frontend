@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Initial Page</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 </head>
 <body>
     <header>
@@ -35,9 +40,9 @@
             <h2>Our most popular dishes</h2>
     
         </section>
-        <map name="locales">
-            <!-- Aquí se inserta mapa desde js -->
-        </map>
+        <div id="map">
+            
+        </div>
         <section id="horarios">
             <p>Our Opening Hours:</p>
             <ul>
