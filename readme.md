@@ -7,7 +7,7 @@
 
 Welcome to my future restaurant web page: FreshBites Fusion!
 
-[Click to visit my page](https://diananospace4bugs.github.io/final-project-frontend/home.html)
+[Click to visit my page](https://diananospace4bugs.github.io/final-project-frontend/home.html)<br>
 [Click to see the web presentation](https://www.canva.com/design/DAFzkY4Uneo/Jsx4Zemvad_Jh96Iv_DAYg/edit?utm_content=DAFzkY4Uneo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 </div>
 
